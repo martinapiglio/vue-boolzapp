@@ -190,11 +190,34 @@
     height: 100%;
 }
 
-#container .right-section .message {
+#container .right-section .messages {
     width: 100%;
     height: calc(100% - 65px - 50px); /*-header -footer size*/
     overflow-y: scroll;
     background-image: url('../img/mine.jpg');
+}
+
+#container .right-section .message {
+    min-width: 40%;
+    max-width: 60%;
+    
+    margin: 1em 1em 0;
+    padding: 1em;
+    
+    border-radius: 10px;
+    font-size: 13px;
+}
+
+.received {
+    background: white;
+    float: left;
+    clear: both;
+}
+
+.sent {
+    background: #D5F9BA;
+    float: right;
+    clear: both;
 }
 
 #container .right-section .footer {
