@@ -55,7 +55,7 @@
 
                 <div class="chats">
 
-                    <div class="chat" v-for="contact in contacts">
+                    <div class="chat" v-for="(contact,index) in contacts" @click="changeActiveChat(index)" :class="index == activeChatIndex ? 'active' : ''">
 
                         <img :src="contact.avatar" :alt="contact.name">
 
@@ -63,16 +63,14 @@
 
                             <div>
                                 <div>{{ contact.name }}</div>
-                                <div>Ultimo messaggio inviato</div>
+                                <div class="small">Ultimo messaggio inviato</div>
                             </div>
                             
-                            <div>12:00</div>
+                            <div class="small">12:00</div>
                             
                         </div>
 
                     </div>
-
-
 
                 </div>
 
@@ -81,6 +79,28 @@
             <div class="right-section">
 
                 <div class="header-right">
+
+                    <div class="header-right-user">
+
+                        <img :src="contacts[activeChatIndex].avatar" :alt="contacts[activeChatIndex].name">
+
+                        <div>
+                            <div>
+                                {{ contacts[activeChatIndex].name }}
+                            </div>
+                            <div class="small">
+                                Ultimo accesso oggi alle 12:00
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="header-right-icons">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+
                 </div>
 
                 <div class="message">
@@ -97,6 +117,8 @@
 
     <!-- vue -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- luxon -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@2.3.0/build/global/luxon.min.js"></script>
     <!-- js script -->
     <script type="text/javascript" src="js/script.js"></script>
 </body>

@@ -43,7 +43,8 @@
     background-color: #eaeaea;
 }
 
-#container .left-section .header-left .header-left-user {
+#container .left-section .header-left .header-left-user,
+#container .right-section .header-right .header-right-user {
     display: flex;
     align-items: center;
     height: 100%;
@@ -51,7 +52,8 @@
     padding: .5em;
 }
 
-#container .left-section .header-left .header-left-user img {
+#container .left-section .header-left .header-left-user img,
+#container .right-section .header-right .header-right-user img {
     height: 100%; 
 
     margin-right: .5em;
@@ -60,7 +62,8 @@
     cursor: pointer;
 }
 
-#container .left-section .header-left .header-left-icons {
+#container .left-section .header-left .header-left-icons,
+#container .right-section .header-right .header-right-icons {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -70,7 +73,8 @@
     padding-right: 1em;
 }
 
-#container .left-section .header-left .header-left-icons i {
+#container .left-section .header-left .header-left-icons i,
+#container .right-section .header-right .header-right-icons i {
     color: rgb(177, 177, 177);
     font-size: large;
     cursor: pointer;
@@ -154,7 +158,11 @@
 }
 
 #container .left-section .chats .chat:hover {
-    background: #f4f5f5;
+    background-color: #f4f5f5;
+}
+
+#container .left-section .chats .chat.active {
+    background-color: #e9ebeb;
 }
 
 #container .left-section .chats .chat img{
@@ -169,6 +177,12 @@
     justify-content: space-between;
 
     width: 100%;
+}
+
+#container .left-section .chats .chat .chat-info .small,
+#container .right-section .header-right .header-right-user .small {
+    font-size: 12px;
+    color: rgb(177, 177, 177); 
 }
 
 #container .right-section {
