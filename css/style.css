@@ -77,9 +77,35 @@
 }
 
 #container .left-section .notifications {
+    display: flex;
+
     width: 100%;
     height: 70px;
+
+    padding: 1em;
     background-color: #8edafc;
+}
+
+#container .left-section .notifications .notifications-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    aspect-ratio: 1;
+    margin-right: .5em;
+    
+    border-radius: 100%;
+    color: #8EDAFC;
+    background-color: #F2FBFF;
+}
+
+#container .left-section .notifications .notifications-text div {
+    font-size: 15px;
+}
+
+#container .left-section .notifications .notifications-text a {
+    font-size: 13px;
+    color: #4F7485;
 }
 
 #container .left-section .search-bar {
