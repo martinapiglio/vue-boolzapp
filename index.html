@@ -54,6 +54,26 @@
                 </div>
 
                 <div class="chats">
+
+                    <div class="chat" v-for="contact in contacts">
+
+                        <img :src="contact.avatar" :alt="contact.name">
+
+                        <div class="chat-info">
+
+                            <div>
+                                <div>{{ contact.name }}</div>
+                                <div>Ultimo messaggio inviato</div>
+                            </div>
+                            
+                            <div>12:00</div>
+                            
+                        </div>
+
+                    </div>
+
+
+
                 </div>
 
             </div>

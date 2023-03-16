@@ -96,7 +96,7 @@
     
     border-radius: 100%;
     color: #8edafc;
-    background-color: #F2FBFF;
+    background-color: #f2fbff;
 }
 
 #container .left-section .notifications .notifications-text div {
@@ -125,7 +125,7 @@
     height: 100%;
     
     padding-left: 1em;
-    border: 1px solid #F5F5F5;
+    border: 1px solid #f5f5f5;
     border-right: 0;
     border-radius: 5px;
     background: #fff;
@@ -137,6 +137,38 @@
     height: calc(100% - 65px - 50px - 70px); /*-header -notifications -searchbar size*/
     background-color: #ffff;
     overflow-y: scroll;
+}
+
+#container .left-section .chats .chat {
+    display: flex;
+
+    height: 65px;
+    padding: .5em;
+
+    border-bottom: 1px solid #f5f5f5;
+    cursor: pointer;
+}
+
+#container .left-section .chats .chat:last-child {
+    border-bottom: 0;
+}
+
+#container .left-section .chats .chat:hover {
+    background: #f4f5f5;
+}
+
+#container .left-section .chats .chat img{
+    height: 100%;
+    margin-right: .5em;
+    
+    border-radius: 100%;
+}
+
+#container .left-section .chats .chat .chat-info {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
 }
 
 #container .right-section {
