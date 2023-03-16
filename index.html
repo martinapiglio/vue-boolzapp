@@ -91,7 +91,8 @@
                                 {{ contacts[activeChatIndex].name }}
                             </div>
                             <div class="small">
-                                Ultimo accesso oggi alle 12:00
+                                <!-- DA MODIFICARE: così mostra sempre l'ultima ora che trova, non l'ultima ora dell'ultimo msg received -->
+                                Ultimo accesso oggi alle {{changeDateFormat(contacts[activeChatIndex].messages[contacts[activeChatIndex].messages.length - 1].date)}} 
                             </div>
                         </div>
 
@@ -109,7 +110,7 @@
 
                     <div v-for="msg in contacts[activeChatIndex].messages" class="message" :class="msg.status">
                         <div> {{msg.message}} </div>
-                        <div> {{changeDateFormat(msg.date)}} </div>
+                        <div class="date"> {{changeDateFormat(msg.date)}} </div>
                     </div>
 
                 </div>
