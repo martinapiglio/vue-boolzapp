@@ -1,3 +1,5 @@
+const DateTime = luxon.DateTime;
+let currentDate = DateTime.now().toFormat('dd/mm/yyyy HH:mm:ss')
 const { createApp } = Vue
 
   createApp({
@@ -166,8 +168,8 @@ const { createApp } = Vue
                 ],
             }
         ],
-        activeChatIndex: 0
-        
+        activeChatIndex: 0,
+        newMsg: ''      
       }
     },
 
@@ -175,8 +177,35 @@ const { createApp } = Vue
 
         changeActiveChat(chatIndex) {
             this.activeChatIndex = chatIndex;
+        },
+
+        changeDateFormat(dateString) {
+            let formatDate = DateTime.fromFormat(dateString, 'dd/mm/yyyy HH:mm:ss').toFormat('HH:mm')
+            return formatDate;
+        },
+
+        sendMessage() {
+            let newMsgEl = {
+                date: currentDate,
+                message: this.newMsg,
+                status: 'sent'
+            };
+
+            this.contacts[this.activeChatIndex].messages.push(newMsgEl);
+            this.newMsg = '';
+
+            setTimeout(this.receiveMessage, 2000);
+        },
+
+        receiveMessage() {
+            let newMsgRec = {
+                date: currentDate,
+                message: 'Ok!',
+                status: 'received'
+            };
+
+            this.contacts[this.activeChatIndex].messages.push(newMsgRec);
         }
 
     }
   }).mount('#app')
-

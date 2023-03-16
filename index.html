@@ -63,10 +63,12 @@
 
                             <div>
                                 <div>{{ contact.name }}</div>
-                                <div class="small">Ultimo messaggio inviato</div>
+                                <div class="small">{{ contact.messages[contact.messages.length - 1].message }}</div>
                             </div>
                             
-                            <div class="small">12:00</div>
+                            <div class="small">
+                                {{ changeDateFormat(contact.messages[contact.messages.length - 1].date) }} 
+                            </div>
                             
                         </div>
 
@@ -107,7 +109,7 @@
 
                     <div v-for="msg in contacts[activeChatIndex].messages" class="message" :class="msg.status">
                         <div> {{msg.message}} </div>
-                        <div> {{msg.date}} </div>
+                        <div> {{changeDateFormat(msg.date)}} </div>
                     </div>
 
                 </div>
@@ -118,7 +120,7 @@
                         <i class="fa-regular fa-face-smile"></i>
                     </div>
 
-                    <input type="text" placeholder="Scrivi un messaggio">
+                    <input type="text" v-model="newMsg" @keyup.enter="sendMessage" placeholder="Scrivi un messaggio">
 
                     <div class="footer-icon-right">
                         <i class="fa-solid fa-microphone"></i>

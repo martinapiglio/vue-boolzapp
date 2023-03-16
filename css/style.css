@@ -212,6 +212,10 @@
     font-size: 13px;
 }
 
+#container .right-section .message:last-child {
+    margin-bottom: 1em;
+}
+
 #container .right-section .message.received {
     align-self: flex-start;
     background-color: white;
