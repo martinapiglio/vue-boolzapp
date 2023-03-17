@@ -109,9 +109,17 @@
 
                 <div class="messages">
 
-                    <div v-for="msg in contacts[activeChatIndex].messages" class="message" :class="msg.status">
+                    <div v-for="(msg, msgIndex) in contacts[activeChatIndex].messages" class="message" :class="msg.status">
                         <div> {{msg.message}} </div>
+                        
                         <div class="date"> {{changeDateFormat(msg.date)}} </div>
+
+                        <i class="fa-solid fa-chevron-down message-options-dropdown"></i>
+                        <div class="message-options">
+                            <div>Message info</div>
+                            <div @click="deleteMessage(msgIndex)">Delete message</div>
+                        </div>
+
                     </div>
 
                 </div>

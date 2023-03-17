@@ -206,6 +206,8 @@
 }
 
 #container .right-section .message {
+    position: relative;
+
     min-width: 40%;
     max-width: 60%;
     
@@ -224,6 +226,42 @@
     font-size: 12px;
     text-align: end;
     color: rgb(177, 177, 177); 
+}
+
+#container .right-section .message .message-options-dropdown {
+    position: absolute;
+    top: .8em;
+    right: 1.2em;
+
+    color: #6b7376; 
+    cursor: pointer;
+}
+
+#container .right-section .message .message-options {
+    display: none;
+}
+
+#container .right-section .message:hover .message-options {
+    display: flex;
+    flex-direction: column;
+    
+
+    position: absolute;
+    right: 20px;
+    bottom: -60px;
+    z-index: 2;
+
+    color: #6b7376; 
+    background-color: white;
+    box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.4);
+}
+
+#container .right-section .message .message-options div {
+    padding: 1em 1em ;
+}
+
+#container .right-section .message .message-options div:hover {
+    background-color: #f4f5f5;
 }
 
 #container .right-section .message.received {

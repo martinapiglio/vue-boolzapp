@@ -229,12 +229,9 @@ const { createApp } = Vue
 
         },        
 
-
-
-
-
-
-
+        deleteMessage(msgIndex) {
+            this.contacts[this.activeChatIndex].messages.splice(msgIndex, 1)
+        },
 
         getLastAccess() {
 
