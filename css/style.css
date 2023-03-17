@@ -17,7 +17,6 @@
         #009688 15%,
         #dddbd1 15%,
         #d2dbdc 100%);
-    
 }
 
 #container {
@@ -145,14 +144,16 @@
     width: 100%;
     height: calc(100% - 65px - 50px - 70px); /*-header -notifications -searchbar size*/
     background-color: #ffff;
-    overflow-y: scroll;
+    overflow: auto;
 }
 
 #container .left-section .chats .chat {
     display: flex;
 
     height: 65px;
+    width: 100%;
     padding: .5em;
+    overflow: hidden;   
 
     border-bottom: 1px solid #f5f5f5;
     cursor: pointer;
@@ -205,7 +206,7 @@
     background-image: url('../img/mine.jpg');
 }
 
-#container .right-section .message {
+#container .right-section .messages .message {
     position: relative;
 
     min-width: 40%;
@@ -213,22 +214,29 @@
     
     margin: 1em 1.5em 0;
     padding: 1em 1em .3em;
+
+    text-overflow: '';
+    overflow-wrap: break-word;
     
     border-radius: 10px;
     font-size: 13px;
 }
 
-#container .right-section .message:last-child {
+#container .right-section .messages .message:last-child {
     margin-bottom: 1em;
 }
 
-#container .right-section .message .date {
+#container .right-section .messages .message .text {
+    padding-right: 15px;
+}
+
+#container .right-section .messages .message .date {
     font-size: 12px;
     text-align: end;
     color: rgb(177, 177, 177); 
 }
 
-#container .right-section .message .message-options-dropdown {
+#container .right-section .messages .message .message-options-dropdown {
     position: absolute;
     top: .8em;
     right: 1.2em;
@@ -237,18 +245,17 @@
     cursor: pointer;
 }
 
-#container .right-section .message .message-options {
+#container .right-section .messages .message .message-options {
     display: none;
 }
 
-#container .right-section .message:hover .message-options {
+#container .right-section .message i:hover .message-options {
     display: flex;
     flex-direction: column;
     
-
     position: absolute;
-    right: 20px;
-    bottom: -60px;
+    right: 22px;
+    top: 25px;
     z-index: 2;
 
     color: #6b7376; 
@@ -256,20 +263,20 @@
     box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.4);
 }
 
-#container .right-section .message .message-options div {
+#container .right-section .messages .message .message-options div {
     padding: 1em 1em ;
 }
 
-#container .right-section .message .message-options div:hover {
+#container .right-section .messages .message .message-options div:hover {
     background-color: #f4f5f5;
 }
 
-#container .right-section .message.received {
+#container .right-section .messages .message.received {
     align-self: flex-start;
     background-color: white;
 }
 
-#container .right-section .message.received::before {
+#container .right-section .messages .message.received::before {
     content: '';
     position: absolute;
     left: -10px;
@@ -284,12 +291,12 @@
     border-bottom: 8px solid transparent;
 }
 
-#container .right-section .message.sent {
+#container .right-section .messages .message.sent {
     align-self: flex-end;
     background-color: #d5f9ba;
 }
 
-#container .right-section .message.sent::after {
+#container .right-section .messages .message.sent::after {
     content: '';
     position: absolute;
     right: -10px;
