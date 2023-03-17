@@ -11,9 +11,13 @@
     display: flex;
     width: 100%;
     height: 100vh;
-    /* TEST back-color TO BE CHANGED INTO GRADIENT */
-    background-color: #009688;
-    /* /TEST */
+    
+    background-image: linear-gradient(to bottom,
+        #009688 0%,
+        #009688 15%,
+        #dddbd1 15%,
+        #d2dbdc 100%);
+    
 }
 
 #container {

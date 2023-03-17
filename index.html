@@ -92,7 +92,7 @@
                             </div>
                             <div class="small">
                                 <!-- DA MODIFICARE: così mostra sempre l'ultima ora che trova, non l'ultima ora dell'ultimo msg received -->
-                                Ultimo accesso oggi alle {{changeDateFormat(contacts[activeChatIndex].messages[contacts[activeChatIndex].messages.length - 1].date)}} 
+                                Ultimo accesso oggi alle {{ getLastAccess() }}
                             </div>
                         </div>
 

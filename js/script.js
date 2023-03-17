@@ -205,7 +205,23 @@ const { createApp } = Vue
             };
 
             this.contacts[this.activeChatIndex].messages.push(newMsgRec);
+        },
+
+        getLastAccess() {
+
+            //TO BE MODIFIED!!!!
+
+            let lastAccessDate = this.changeDateFormat(this.contacts[this.activeChatIndex].messages[this.contacts[this.activeChatIndex].messages.length - 1].date);
+            let lastStatus = this.contacts[this.activeChatIndex].messages[this.contacts[this.activeChatIndex].messages.length - 1].status;
+            
+            if (lastStatus == 'received') {
+                return lastAccessDate;
+            } else {
+                return '';
+            }
+            
         }
 
     }
   }).mount('#app')
+
