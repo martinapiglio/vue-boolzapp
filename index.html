@@ -49,13 +49,13 @@
                 <div class="search-bar">
 
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input v-model="searchText" @keyup="searchName" type="text" placeholder="Cerca o inizia una nuova chat">
 
                 </div>
 
                 <div class="chats">
 
-                    <div class="chat" v-for="(contact,index) in contacts" @click="changeActiveChat(index)" :class="index == activeChatIndex ? 'active' : ''">
+                    <div class="chat" v-for="(contact,index) in contacts" v-show="contact.visible" @click="changeActiveChat(index)" :class="index == activeChatIndex ? 'active' : ''">
 
                         <img :src="contact.avatar" :alt="contact.name">
 
@@ -91,8 +91,9 @@
                                 {{ contacts[activeChatIndex].name }}
                             </div>
                             <div class="small">
-                                <!-- DA MODIFICARE: così mostra sempre l'ultima ora che trova, non l'ultima ora dell'ultimo msg received -->
+                                <!-- DA MODIFICARE -->
                                 Ultimo accesso oggi alle {{ getLastAccess() }}
+                                <!-- // -->
                             </div>
                         </div>
 

@@ -169,7 +169,8 @@ const { createApp } = Vue
             }
         ],
         activeChatIndex: 0,
-        newMsg: ''      
+        newMsg: '',
+        searchText: ''      
       }
     },
 
@@ -206,6 +207,34 @@ const { createApp } = Vue
 
             this.contacts[this.activeChatIndex].messages.push(newMsgRec);
         },
+
+        searchName() {
+
+            this.contacts.forEach((contact) => {
+
+                let contactLower = contact.name.toLowerCase();
+                let searcTextLower = this.searchText.toLowerCase();
+
+                if(contactLower.includes(searcTextLower)) {
+                    
+                    contact.visible = true;
+
+                } else {
+
+                    contact.visible = false;
+                    
+                };
+
+            });
+
+        },        
+
+
+
+
+
+
+
 
         getLastAccess() {
 
