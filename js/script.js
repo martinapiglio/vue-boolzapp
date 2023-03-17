@@ -170,7 +170,7 @@ const { createApp } = Vue
         ],
         activeChatIndex: 0,
         newMsg: '',
-        searchText: ''      
+        searchText: ''
       }
     },
 
@@ -239,7 +239,7 @@ const { createApp } = Vue
 
             let lastAccessDate = this.changeDateFormat(this.contacts[this.activeChatIndex].messages[this.contacts[this.activeChatIndex].messages.length - 1].date);
             let lastStatus = this.contacts[this.activeChatIndex].messages[this.contacts[this.activeChatIndex].messages.length - 1].status;
-            
+
             if (lastStatus == 'received') {
                 return lastAccessDate;
             } else {

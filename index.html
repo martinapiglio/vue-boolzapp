@@ -61,7 +61,7 @@
 
                         <div class="chat-info">
 
-                            <div>
+                            <div class="chat-info-msg">
                                 <div>{{ contact.name }}</div>
                                 <div class="small">{{ contact.messages[contact.messages.length - 1].message }}</div>
                             </div>
@@ -114,12 +114,13 @@
                         
                         <div class="date"> {{changeDateFormat(msg.date)}} </div>
 
-                        <i class="fa-solid fa-chevron-down message-options-dropdown"></i>
-                        <div class="message-options">
-                            <div>Message info</div>
-                            <div @click="deleteMessage(msgIndex)">Delete message</div>
+                        <div class="message-options-container">
+                            <i class="fa-solid fa-chevron-down message-options-dropdown"></i>
+                            <div class="message-options">
+                                <div>Message info</div>
+                                <div @click="deleteMessage(msgIndex)">Delete message</div>
+                            </div>
                         </div>
-
 
                     </div>
 
