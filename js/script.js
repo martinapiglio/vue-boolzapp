@@ -170,7 +170,8 @@ const { createApp } = Vue
         ],
         activeChatIndex: 0,
         newMsg: '',
-        searchText: ''
+        searchText: '',
+        randomMsgArray: ['Ok!' , 'Va bene!' , "Ci sarò senz'altro" , 'Mi dispiace, non posso...']
       }
     },
 
@@ -199,9 +200,11 @@ const { createApp } = Vue
         },
 
         receiveMessage() {
+            let randomMsgArrayIndex =  Math.floor(Math.random() * (this.randomMsgArray.length)); 
+
             let newMsgRec = {
                 date: currentDate,
-                message: 'Ok!',
+                message: this.randomMsgArray[randomMsgArrayIndex],
                 status: 'received'
             };
 
@@ -250,4 +253,10 @@ const { createApp } = Vue
 
     }
   }).mount('#app')
+
+
+
+
+
+
 
