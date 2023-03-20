@@ -206,6 +206,40 @@
     height: 100%;
 }
 
+#container .right-section .header-right .header-right-icons .options {
+    position: relative;
+}
+
+
+#container .right-section .header-right .header-right-icons .options .delete-options {
+    display: none;
+}
+
+#container .right-section .header-right .header-right-icons .options:hover .delete-options {
+    display: flex;
+    flex-direction: column;
+    
+    position: absolute;
+    right: .3em;
+    top: 1.2em;
+    z-index: 2;
+
+    min-width: 130px;
+    font-size: 13px;
+    color: #6b7376; 
+    background-color: white;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    
+}
+
+#container .right-section .header-right .header-right-icons .options .delete-options div {
+    padding: 1em 1em ;
+}
+
+#container .right-section .header-right .header-right-icons .options .delete-options div:hover {
+    background-color: #f4f5f5;
+}
+
 #container .right-section .messages {
     display: flex;
     flex-direction: column;
