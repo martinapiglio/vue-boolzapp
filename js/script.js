@@ -177,6 +177,7 @@ const { createApp } = Vue
     },
 
     mounted() {
+        this.splashPage();
         this.setLastAccess();
     },
 
@@ -325,7 +326,17 @@ const { createApp } = Vue
     
             this.contacts.push(newChat);
     
-        }
+        },
+
+        splashPage() {
+
+            let splashPage = document.getElementById('splash-page');
+    
+            setTimeout(() => {
+                splashPage.style.display = 'none';
+            }, 3000);
+    
+        },
     
     }
   }).mount('#app')

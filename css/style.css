@@ -29,6 +29,26 @@
     height: 93%;
 }
 
+#container #splash-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+
+    height: 100%;
+    width: 100%;
+
+    font-size: larger;
+    color:#B6B9BB;
+    background-color: #111b21;
+}
+
 #container .left-section {
     width: 35%;
     height: 100%;
