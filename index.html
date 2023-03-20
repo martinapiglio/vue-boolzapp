@@ -135,7 +135,10 @@
                     <input type="text" v-model="newMsg" @keyup.enter="sendMessage" placeholder="Scrivi un messaggio">
 
                     <div class="footer-icon-right">
-                        <i class="fa-solid fa-microphone"></i>
+                        <i 
+                            :class="newMsg == '' ? 'fa-solid fa-microphone' : 'fa-solid fa-paper-plane' "
+                            @click="sendMessage">
+                        </i>
                     </div>
 
 

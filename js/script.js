@@ -265,7 +265,6 @@ const { createApp } = Vue
                 msgContainer.scrollTop = msgContainer.scrollHeight;
             });
         }
-
     }
   }).mount('#app')
 
