@@ -202,7 +202,8 @@ const { createApp } = Vue
             
             this.newMsg = '';
 
-            setTimeout(this.receiveMessage, 2000);
+            this.receiveMessage();
+
         },
 
         receiveMessage() {
@@ -214,8 +215,13 @@ const { createApp } = Vue
                 status: 'received'
             };
 
-            this.contacts[this.activeChatIndex].messages.push(newMsgRec);
-            this.lastMsgScroll();
+            let correctChatIndex = this.activeChatIndex;
+
+            setTimeout(() => {
+                this.contacts[correctChatIndex].messages.push(newMsgRec);
+                this.lastMsgScroll();
+              }, 2000);
+            
         },
 
         searchName() {
