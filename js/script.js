@@ -172,17 +172,18 @@ const { createApp } = Vue
         newMsg: '',
         searchText: '',
         randomMsgArray: ['Ok!' , 'Va bene!' , "Ci sarò senz'altro" , 'Mi dispiace, non posso...'],
-        currentStatus: 'Ultimo accesso oggi alle ',
-        isTyping: false 
+        currentStatus: ''
       }
+    },
+
+    mounted() {
+        this.setLastAccess();
     },
 
     methods: {
 
         changeActiveChat(chatIndex) {
             this.activeChatIndex = chatIndex;
-            this.currentStatus = 'Ultimo accesso oggi alle ' + this.getLastAccess();
-
         },
 
         changeDateFormat(dateString) {
@@ -290,10 +291,13 @@ const { createApp } = Vue
 
             let lastAccessDate = this.changeDateFormat(receivedMsg[receivedMsg.length - 1].date);
 
-            console.log(lastAccessDate);
-
             return lastAccessDate;
 
+        },
+
+        setLastAccess() {
+            this.currentStatus = 'Ultimo accesso oggi alle ' + this.getLastAccess();
+            return this.currentStatus;
         },
 
         lastMsgScroll() {
