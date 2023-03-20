@@ -193,7 +193,12 @@ const { createApp } = Vue
                 status: 'sent'
             };
 
-            this.contacts[this.activeChatIndex].messages.push(newMsgEl);
+            if (this.newMsg.trim() == '' || this.newMsg.trim() == null) {
+                return false;
+            } else {
+                this.contacts[this.activeChatIndex].messages.push(newMsgEl);
+            };
+            
             this.newMsg = '';
 
             setTimeout(this.receiveMessage, 2000);
