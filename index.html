@@ -107,7 +107,7 @@
 
                 </div>
 
-                <div class="messages">
+                <div class="messages" id="right-section-msg">
 
                     <div v-for="(msg, msgIndex) in contacts[activeChatIndex].messages" class="message" :class="msg.status">
                         <div class="text"> {{msg.message}} </div>

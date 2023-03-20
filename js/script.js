@@ -197,6 +197,7 @@ const { createApp } = Vue
                 return false;
             } else {
                 this.contacts[this.activeChatIndex].messages.push(newMsgEl);
+                this.lastMsgScroll();
             };
             
             this.newMsg = '';
@@ -214,6 +215,7 @@ const { createApp } = Vue
             };
 
             this.contacts[this.activeChatIndex].messages.push(newMsgRec);
+            this.lastMsgScroll();
         },
 
         searchName() {
@@ -254,6 +256,14 @@ const { createApp } = Vue
                 return '';
             }
             
+        },
+
+        lastMsgScroll() {
+
+            Vue.nextTick(function() {
+                let msgContainer = document.getElementById('right-section-msg');
+                msgContainer.scrollTop = msgContainer.scrollHeight;
+            });
         }
 
     }
