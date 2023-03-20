@@ -171,7 +171,9 @@ const { createApp } = Vue
         activeChatIndex: 0,
         newMsg: '',
         searchText: '',
-        randomMsgArray: ['Ok!' , 'Va bene!' , "Ci sarò senz'altro" , 'Mi dispiace, non posso...']
+        randomMsgArray: ['Ok!' , 'Va bene!' , "Ci sarò senz'altro" , 'Mi dispiace, non posso...'],
+        currentStatus: 'Ultimo accesso oggi alle ',
+        isTyping: false 
       }
     },
 
@@ -179,6 +181,8 @@ const { createApp } = Vue
 
         changeActiveChat(chatIndex) {
             this.activeChatIndex = chatIndex;
+            this.currentStatus = 'Ultimo accesso oggi alle ' + this.getLastAccess();
+
         },
 
         changeDateFormat(dateString) {
@@ -217,10 +221,28 @@ const { createApp } = Vue
 
             let correctChatIndex = this.activeChatIndex;
 
+            this.currentStatus = 'Ultimo accesso oggi alle ' + this.getLastAccess();
+
+            setTimeout(() => {
+                this.currentStatus = 'Online';
+            }, 2000);
+
+            setTimeout(() => {
+                this.currentStatus = 'Sta scrivendo...'
+            }, 6000);
+
             setTimeout(() => {
                 this.contacts[correctChatIndex].messages.push(newMsgRec);
                 this.lastMsgScroll();
-              }, 2000);
+            }, 10000);
+            
+              setTimeout(() => {
+                this.currentStatus = 'Online';
+            }, 10100);
+
+            setTimeout(() => {
+                this.currentStatus = 'Ultimo accesso oggi alle ' + this.getLastAccess();
+            }, 15000);
             
         },
 
@@ -260,17 +282,18 @@ const { createApp } = Vue
 
         getLastAccess() {
 
-            //TO BE MODIFIED!!!!
+            const receivedMsg = this.contacts[this.activeChatIndex].messages.filter((elemento) => {
+                if (elemento.status == 'received') {
+                    return true
+                }
+            });
 
-            let lastAccessDate = this.changeDateFormat(this.contacts[this.activeChatIndex].messages[this.contacts[this.activeChatIndex].messages.length - 1].date);
-            let lastStatus = this.contacts[this.activeChatIndex].messages[this.contacts[this.activeChatIndex].messages.length - 1].status;
+            let lastAccessDate = this.changeDateFormat(receivedMsg[receivedMsg.length - 1].date);
 
-            if (lastStatus == 'received') {
-                return lastAccessDate;
-            } else {
-                return '';
-            }
-            
+            console.log(lastAccessDate);
+
+            return lastAccessDate;
+
         },
 
         lastMsgScroll() {
@@ -284,11 +307,10 @@ const { createApp } = Vue
         addChat() {
 
             let newChatName = prompt('A chi vuoi scrivere? Inserisci nome e cognome');
-            let newChatPic = prompt('Inserisci il link alla foto profilo del nuovo contatto');
-                                    //https://picsum.photos/50
+                                    
             let newChat = {
                 name: newChatName,
-                avatar: newChatPic,
+                avatar: 'https://picsum.photos/50',
                 visible: true,
                 messages: [{
                     date: currentDate,
