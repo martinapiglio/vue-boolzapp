@@ -279,7 +279,28 @@ const { createApp } = Vue
                 let msgContainer = document.getElementById('right-section-msg');
                 msgContainer.scrollTop = msgContainer.scrollHeight;
             });
+        },
+
+        addChat() {
+
+            let newChatName = prompt('A chi vuoi scrivere? Inserisci nome e cognome');
+            let newChatPic = prompt('Inserisci il link alla foto profilo del nuovo contatto');
+                                    //https://picsum.photos/50
+            let newChat = {
+                name: newChatName,
+                avatar: newChatPic,
+                visible: true,
+                messages: [{
+                    date: currentDate,
+                    message: '',
+                    status: ''
+                }]
+            }
+    
+            this.contacts.push(newChat);
+    
         }
+    
     }
   }).mount('#app')
 
