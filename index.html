@@ -69,10 +69,15 @@
 
                             <div class="chat-info-msg">
                                 <div>{{ contact.name }}</div>
-                                <div class="small">{{ contact.messages[contact.messages.length - 1].message }}</div>
+                                <div class="small" v-if="contact.messages.length > 0">
+                                    {{ contact.messages[contact.messages.length - 1].message }}
+                                </div>
+                                <div class="small" v-else> 
+                                    <i>Nessun messaggio</i> 
+                                </div>
                             </div>
                             
-                            <div class="small">
+                            <div class="small" v-if="contact.messages.length > 0">
                                 {{ changeDateFormat(contact.messages[contact.messages.length - 1].date) }} 
                             </div>
                             
